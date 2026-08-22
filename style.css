@@ -1,0 +1,182 @@
+/* ==========================================================
+   South Tryon Community UMC
+   ========================================================== */
+
+:root{
+  --cream:#FAF5EE;
+  --cream-2:#F3EADC;
+  --ink:#2A2522;
+  --ink-soft:#5C4A3A;
+  --wine:#4A1A26;
+  --wine-lt:#6B2737;
+  --ember:#B8862F;
+  --ember-hi:#E8A33C;
+  --rule:rgba(74,26,38,.16);
+
+  --serif:'Newsreader',Georgia,serif;
+  --sans:'Public Sans',system-ui,-apple-system,sans-serif;
+
+  --pad:clamp(1.25rem,5vw,4.5rem);
+  --max:76rem;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:1.0625rem;
+  line-height:1.65;
+  font-weight:380;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+
+/* ---------- type ---------- */
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.015em}
+h1{font-size:clamp(2.4rem,6.4vw,4.4rem);color:var(--wine)}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem);color:var(--wine)}
+h3{font-size:1.3rem;color:var(--wine-lt);line-height:1.25}
+
+.eyebrow{
+  font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ember);
+}
+.lede{font-size:clamp(1.1rem,2.1vw,1.3rem);line-height:1.6;color:var(--ink-soft)}
+p + p{margin-top:1rem}
+.measure{max-width:36rem}
+
+/* ---------- header ---------- */
+.site-head{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,245,238,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule);
+}
+.head-in{
+  max-width:var(--max);margin:0 auto;padding:.85rem var(--pad);
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+}
+.brand{font-family:var(--serif);font-size:1.05rem;font-weight:600;color:var(--wine);
+  text-decoration:none;line-height:1.15;letter-spacing:-.01em}
+.brand span{display:block;font-family:var(--sans);font-size:.62rem;font-weight:600;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--ember);margin-top:.15rem}
+.nav{display:flex;align-items:center;gap:1.6rem}
+.nav a{font-size:.86rem;font-weight:500;text-decoration:none;color:var(--ink-soft)}
+.nav a:hover{color:var(--wine)}
+.nav .btn{color:var(--cream)}
+@media(max-width:800px){.nav a:not(.btn){display:none}}
+
+.btn{
+  display:inline-block;background:var(--wine);color:var(--cream);
+  padding:.7rem 1.5rem;border-radius:2px;text-decoration:none;
+  font-size:.9rem;font-weight:600;letter-spacing:.01em;
+  transition:background .18s ease;border:none;cursor:pointer;font-family:var(--sans);
+}
+.btn:hover{background:var(--wine-lt)}
+.btn-ghost{background:transparent;color:var(--wine);border:1px solid var(--wine)}
+.btn-ghost:hover{background:var(--wine);color:var(--cream)}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{
+  outline:2px solid var(--ember-hi);outline-offset:3px
+}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(2.5rem,6vw,5rem) 0 clamp(2rem,5vw,4rem)}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(2rem,4vw,3.5rem);align-items:end}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr}}
+.hero h1{margin:.9rem 0 1.1rem}
+.hero-photo img{width:100%;aspect-ratio:5/4;object-fit:cover;object-position:50% 32%}
+.hero-cap{font-size:.76rem;color:var(--ink-soft);margin-top:.6rem;font-style:italic}
+
+/* signature: the hours plaque */
+.hours{margin-top:2.25rem;border-top:2px solid var(--wine);padding-top:1.25rem}
+.hours dl{display:grid;gap:1.05rem}
+.hours dt{font-size:.68rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--ember)}
+.hours dd{font-family:var(--serif);font-size:clamp(1.35rem,3vw,1.75rem);color:var(--wine);line-height:1.15;margin-top:.1rem}
+.hours dd small{display:block;font-family:var(--sans);font-size:.82rem;color:var(--ink-soft);
+  letter-spacing:0;margin-top:.25rem;font-weight:400}
+
+/* ---------- vision band ---------- */
+.band{background:var(--wine);color:var(--cream)}
+.band .wrap{padding-block:clamp(2.5rem,5vw,3.75rem)}
+.band p{font-family:var(--serif);font-size:clamp(1.4rem,3.4vw,2.15rem);line-height:1.32;
+  max-width:44rem;font-weight:400}
+.band .eyebrow{color:var(--ember-hi);margin-bottom:1rem}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(3rem,7vw,5.5rem)}
+.sec-alt{background:var(--cream-2)}
+.sec > .wrap > .eyebrow{display:block;margin-bottom:.7rem}
+.sec h2 + p, .sec h2 + .lede{margin-top:1.1rem}
+
+.split{display:grid;grid-template-columns:1fr;gap:clamp(1.75rem,4vw,3.25rem);align-items:center}
+@media(min-width:880px){
+  .split{grid-template-columns:1fr 1fr}
+  .split-rev .split-media{order:-1}
+}
+.split-media img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.split-media.tall img{aspect-ratio:3/4}
+
+.duo,.trio{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:2.25rem}
+@media(min-width:640px){.duo{grid-template-columns:1fr 1fr}.trio{grid-template-columns:1fr 1fr}}
+@media(min-width:940px){.trio{grid-template-columns:repeat(3,1fr)}}
+.duo img,.trio img{width:100%;aspect-ratio:3/2;object-fit:cover}
+
+/* values */
+.values{display:grid;grid-template-columns:1fr;gap:1.75rem;margin-top:2.5rem}
+@media(min-width:700px){.values{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.values{grid-template-columns:repeat(4,1fr)}}
+.value{border-top:2px solid var(--ember);padding-top:1rem}
+.value h3{font-size:1.15rem;margin-bottom:.4rem}
+.value p{font-size:.94rem;color:var(--ink-soft)}
+
+/* give */
+.give-box{background:var(--wine);color:var(--cream);padding:clamp(1.75rem,4vw,2.75rem);margin-top:2rem}
+.give-box h3{color:var(--cream);font-size:1.4rem}
+.give-box p{margin-top:.6rem;color:rgba(237,228,214,.85);max-width:34rem}
+.give-box .btn{background:var(--ember-hi);color:var(--wine);margin-top:1.5rem;font-weight:700}
+.give-box .btn:hover{background:var(--cream)}
+.give-note{font-size:.85rem;color:var(--ink-soft);margin-top:1.25rem}
+
+/* visit */
+.visit-grid{display:grid;grid-template-columns:1fr;gap:clamp(2rem,5vw,3.5rem)}
+@media(min-width:880px){.visit-grid{grid-template-columns:1fr 1fr}}
+.info dl{display:grid;gap:1.35rem;margin-top:1.75rem}
+.info dt{font-size:.68rem;font-weight:700;letter-spacing:.19em;text-transform:uppercase;color:var(--ember)}
+.info dd{margin-top:.2rem}
+.info dd a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.info dd a:hover{border-bottom-color:var(--ember)}
+
+/* form */
+.form{margin-top:1.75rem}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--wine-lt);margin-bottom:.4rem}
+.field input,.field textarea,.field select{
+  width:100%;padding:.75rem .9rem;font-family:var(--sans);font-size:1rem;
+  color:var(--ink);background:var(--cream);border:1px solid var(--rule);border-radius:2px;
+}
+.sec-alt .field input,.sec-alt .field textarea,.sec-alt .field select{background:#fff}
+.field textarea{min-height:7rem;resize:vertical}
+.hp{position:absolute;left:-9999px}
+
+/* footer */
+.site-foot{background:var(--ink);color:rgba(250,245,238,.75);
+  padding-block:clamp(2.5rem,5vw,3.5rem);font-size:.9rem}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:1.75rem}
+@media(min-width:700px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+.site-foot h4{font-family:var(--serif);color:var(--cream);font-size:1.15rem;
+  font-weight:500;margin-bottom:.6rem}
+.site-foot a{color:rgba(250,245,238,.75);text-decoration:none}
+.site-foot a:hover{color:var(--ember-hi)}
+.site-foot ul{list-style:none;display:grid;gap:.4rem}
+.colophon{border-top:1px solid rgba(250,245,238,.15);margin-top:2.5rem;padding-top:1.5rem;
+  font-size:.78rem;color:rgba(250,245,238,.5)}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
