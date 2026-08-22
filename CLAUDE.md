@@ -142,7 +142,10 @@ follow the same pattern and keep the hidden `form-name` input.
 ## Working agreement
 
 - Read the relevant file before editing it. Don't work from memory of an earlier version.
-- After a change is approved, commit with a short descriptive message and push to `main`.
+- After a change is approved, commit with a short descriptive message.
+- This environment has no GitHub credentials configured, so `git push` will fail here.
+  Don't try to fix that or work around it — after committing, tell Rev. Dayson the
+  commit is ready and ask him to push it himself from the GitHub Desktop app on his Mac.
 - Never force-push. Never hard-reset.
 - If a change would alter the flat file structure, the palette, the fonts, or any of the
   facts above, stop and ask first.
