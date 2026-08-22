@@ -114,6 +114,11 @@ Substance:
 - Grace comes first, and hospitality carries accountability. Both are true at once.
 - The church does not exist apart from Brookhill Village and Southside Homes. Write
   as though the neighborhood is the congregation, because it substantially is.
+- Trinity's Table is a shared meal on the Haywood Street model, not a food line. Never
+  call it a soup kitchen, feeding line, or handout. Write from abundance, not scarcity —
+  there is always enough, nobody is counted or rationed, and there's no divide between
+  who cooked and who's eating. That's a mistake that has already been made once; don't
+  make it again.
 
 Primary audience is a neighbor from Brookhill or Southside deciding whether to walk in,
 not a suburban church shopper comparing options. Funders and partners are secondary.
