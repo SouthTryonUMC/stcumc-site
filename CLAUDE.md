@@ -14,13 +14,26 @@ you changed in plain language, not in terms of selectors and DOM nodes.
 
 ## Hard constraints
 
-**The repo is FLAT. No folders. Ever.**
-Every file lives at the root. `style.css` and all `.jpg` files sit alongside the HTML.
-Reference them as `style.css` and `hero.jpg`, never `/css/style.css` or `/img/hero.jpg`.
-This is not a preference — GitHub's browser uploader could not create folders, and the
-paths were rebuilt to be flat. Adding a folder breaks the site.
+**The repo is FLAT. No folders. Ever, except `.github/`.**
+Every website file lives at the root. `style.css` and all `.jpg` files sit alongside the
+HTML. Reference them as `style.css` and `hero.jpg`, never `/css/style.css` or
+`/img/hero.jpg`. This is not a preference — GitHub's browser uploader could not create
+folders, and the paths were rebuilt to be flat. Adding a folder breaks the site. The one
+exception is `.github/`, because GitHub requires workflows to live there; it isn't a
+website file and Netlify ignores it.
 
-**No build step.** No npm, no bundler, no framework. Plain HTML and one CSS file.
+**No frontend build step.** No npm, no bundler, no framework. The committed files are
+the site and work as-is.
+
+One exception: `build_events.py`, run daily by `.github/workflows/events.yml`, rewrites
+the "What's coming up" section of `index.html` from the church's public Google Calendar
+and commits plain HTML. Don't add other generators without asking. `index.html` has an
+`<!-- EVENTS:START -->` / `<!-- EVENTS:END -->` comment pair (added 2026-08-23) between
+the Sunday Worship section and the "Our neighborhood" section marking the space that
+script fills in — leave the markers on their own lines, empty, exactly as written, and
+don't let an auto-formatter strip the HTML comments. The matching CSS (`.events`,
+`.event`, `.event-date`, `.event-month`, `.event-day`, `.event-body`, `.event-title`,
+`.event-desc`, `.events-note`) lives at the end of `style.css`.
 
 **No browser storage.** No localStorage or sessionStorage anywhere.
 

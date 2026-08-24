@@ -202,3 +202,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
+
+/* ---------- upcoming events ---------- */
+.events{list-style:none;margin-top:2rem;border-top:2px solid var(--wine)}
+.event{display:flex;gap:clamp(1rem,3vw,1.5rem);padding:1.15rem 0;
+  border-bottom:1px solid var(--rule)}
+.event-date{flex:0 0 3.6rem;text-align:center}
+.event-month{display:block;font-size:.68rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--ember)}
+.event-day{display:block;font-family:var(--serif);font-size:1.7rem;
+  color:var(--wine);line-height:1.05}
+.event-body{flex:1}
+.event-title{font-size:1.2rem;color:var(--wine-lt);line-height:1.25}
+.event-desc{font-size:.95rem;color:var(--ink-soft);margin-top:.15rem}
+.events-note{margin-top:1.5rem;font-size:.95rem;color:var(--ink-soft);max-width:38rem}
