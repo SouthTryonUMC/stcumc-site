@@ -34,7 +34,7 @@ END_MARK = "<!-- EVENTS:END -->"
 
 WEEKLY_NOTE = (
     "Every week besides: worship Sunday at 11:00, Trinity's Table Tuesday and "
-    "Thursday at 11:30, and Bible study Wednesday night."
+    "Thursday at 11:30, and Bible study Wednesday at 7:00 PM."
 )
 
 
