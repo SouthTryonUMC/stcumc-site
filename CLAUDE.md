@@ -67,6 +67,8 @@ changes, change all of them.
 
 - Sunday Worship: **11:00 AM**, runs about **1 hour 15 minutes**
 - Trinity's Table: **Tuesday & Thursday, 11:30 AM** — free, no sign-up
+- Bible study: **Wednesday night** (exact time not yet documented — confirm before
+  printing it anywhere specific)
 - Communion: first Sunday of the month, open table
 - Address: 2516 South Tryon Street, Charlotte, NC 28203
 - Phone: **(980) 939-6463** — this is the public number. An older 704 number exists; do not use it.
