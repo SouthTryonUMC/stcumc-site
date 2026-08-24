@@ -1,0 +1,36 @@
+name: Update events from Google Calendar
+
+on:
+  schedule:
+    - cron: "0 11 * * *"      # ~6-7am Charlotte time, daily
+  workflow_dispatch:           # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build events section
+        env:
+          GOOGLE_CALENDAR_API_KEY: ${{ secrets.GOOGLE_CALENDAR_API_KEY }}
+        run: python build_events.py
+
+      - name: Commit if the page changed
+        run: |
+          if [[ -z "$(git status --porcelain index.html)" ]]; then
+            echo "No change. Skipping commit so Netlify does not redeploy."
+            exit 0
+          fi
+          git config user.name  "STCUMC events bot"
+          git config user.email "actions@github.com"
+          git add index.html
+          git commit -m "Update upcoming events from calendar"
+          git push
