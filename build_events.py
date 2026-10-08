@@ -11,6 +11,7 @@ Calendar conventions (documented for the admin in EVENTS-HOWTO.md):
   announce: 12 weeks     show earlier than the default 8-week window
   announce: none         keep off the website entirely
 Recurring events are always skipped. The weekly rhythm is hard-coded below.
+The section always renders, even with no events, so the weekly schedule stays up.
 """
 
 import html
@@ -32,10 +33,13 @@ PAGE = "index.html"
 START_MARK = "<!-- EVENTS:START -->"
 END_MARK = "<!-- EVENTS:END -->"
 
-WEEKLY_NOTE = (
-    "Every week besides: worship Sunday at 11:00, Trinity's Table Tuesday and "
-    "Thursday at 11:30, and Bible study Wednesday at 7:00 PM."
-)
+# (what, when) for the "Every week" block under the event list.
+WEEKLY = [
+    ("Worship", "Sunday, 11:00 AM"),
+    ("Trinity's Table", "Tuesday & Thursday, 11:30 AM"),
+    ("Bible study", "Wednesday, 7:00 PM"),
+]
+EMPTY_NOTE = "No special events on the calendar right now."
 
 
 def fetch_events(api_key):
@@ -109,7 +113,7 @@ def select(events):
         if ev.get("status") == "cancelled":
             continue
         if ev.get("recurringEventId"):
-            continue                      # weekly rhythm lives in WEEKLY_NOTE
+            continue                      # weekly rhythm lives in WEEKLY
         title = (ev.get("summary") or "").strip()
         if not title:
             continue
@@ -127,8 +131,6 @@ def select(events):
 
 
 def render(events):
-    if not events:
-        return ""
     rows = []
     for e in events:
         desc = (
@@ -146,15 +148,28 @@ def render(events):
           </div>
         </li>"""
         )
+    if rows:
+        listing = f"""      <ul class="events">
+{chr(10).join(rows)}
+      </ul>"""
+    else:
+        listing = f'      <p class="events-empty">{html.escape(EMPTY_NOTE)}</p>'
+    weekly = "\n".join(
+        f"          <div><dt>{html.escape(what)}</dt><dd>{html.escape(when)}</dd></div>"
+        for what, when in WEEKLY
+    )
     return f"""
   <section class="sec" id="events">
     <div class="wrap">
       <span class="eyebrow">What's coming up</span>
       <h2>Beyond the usual week.</h2>
-      <ul class="events">
-{chr(10).join(rows)}
-      </ul>
-      <p class="events-note">{html.escape(WEEKLY_NOTE)}</p>
+{listing}
+      <div class="weekly">
+        <p class="eyebrow">Every week</p>
+        <dl>
+{weekly}
+        </dl>
+      </div>
     </div>
   </section>
 """

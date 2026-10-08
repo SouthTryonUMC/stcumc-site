@@ -33,7 +33,10 @@ the Sunday Worship section and the "Our neighborhood" section marking the space 
 script fills in — leave the markers on their own lines, empty, exactly as written, and
 don't let an auto-formatter strip the HTML comments. The matching CSS (`.events`,
 `.event`, `.event-date`, `.event-month`, `.event-day`, `.event-body`, `.event-title`,
-`.event-desc`, `.events-note`) lives at the end of `style.css`.
+`.event-desc`, `.events-empty`, `.weekly`) lives at the end of `style.css`.
+The section always shows, even with no events: a "No special events" line plus an
+"Every week" block whose schedule is hard-coded in `WEEKLY` in `build_events.py`. If a
+weekly time changes, update it there as well as in the Facts below.
 
 **No browser storage.** No localStorage or sessionStorage anywhere.
 
